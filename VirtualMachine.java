@@ -20,7 +20,7 @@ public class VirtualMachine {
 
             case DIV:
                 if (instruction.getOperand() == 0) {
-                    System.out.println("Error: Division by zero");
+                    System.out.println("Security Alert: Division by zero detected.");
                     return;
                 }
                 accumulator /= instruction.getOperand();
@@ -30,5 +30,15 @@ public class VirtualMachine {
                 System.out.println("ACC = " + accumulator);
                 break;
         }
+    }
+
+    // ✅ IMPORTANT: Getter method for GUI
+    public int getAccumulator() {
+        return accumulator;
+    }
+
+    // Optional reset method (good practice)
+    public void reset() {
+        accumulator = 0;
     }
 }
